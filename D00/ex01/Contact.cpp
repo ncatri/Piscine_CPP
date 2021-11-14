@@ -1,11 +1,12 @@
 #include "Contact.hpp"
+#include <iostream>
 
-Contact::Contact(std::string fname, std::string lname, std::string nname, std::string phone, std::string secret) :
-_firstname(fname), _lastname(lname), _nickname(nname), _phone_number(phone), _darkest_secret(secret) {
+Contact::Contact(void) {
 	return ;
 }
 
 Contact::~Contact(void) {
+	std::cout << this->_firstname << ' ' << this->_lastname << " is deleted" << std::endl;
 	return ;
 }
 

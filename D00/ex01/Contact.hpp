@@ -7,7 +7,7 @@ class Contact {
 
 public:
 	
-	Contact(std::string fname, std::string lname, std::string nname, std::string phone, std::string secret);
+	Contact(void);
 	~Contact(void);
 
 	std::string getFirstname(void) const;

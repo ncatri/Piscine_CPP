@@ -9,6 +9,8 @@ public:
 
 	Phonebook(void);
 	~Phonebook(void);
+	
+	int add_contact(void);
 
 private:
 
