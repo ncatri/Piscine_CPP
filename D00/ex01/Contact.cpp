@@ -49,3 +49,25 @@ std::string Contact::getDarkest_secret(void) const {
 void	Contact::setDarkest_secret(std::string secret) {
 	this->_darkest_secret = secret;
 }
+
+void	Contact::enter_field(std::string message, void (Contact::*f)(std::string field)) {
+
+	std::string	buffer;
+
+	std::cout << message;
+	std::cin >> buffer;
+	(this->*f)(buffer);
+
+	return;
+}
+
+void	Contact::create_contact(void) {
+
+	this->enter_field("enter firstname :", &Contact::setFirstname);
+	this->enter_field("enter lastname :", &Contact::setLastname);
+	this->enter_field("enter nickname :", &Contact::setNickname);
+	this->enter_field("enter phone number :", &Contact::setPhone_number);
+	this->enter_field("the darkest secret:", &Contact::setDarkest_secret);
+
+	return;
+}

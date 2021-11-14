@@ -2,6 +2,7 @@
 #include <iostream>
 
 Phonebook::Phonebook(void) {
+	this->_index = 0;
 	return;
 }
 
@@ -11,19 +12,9 @@ Phonebook::~Phonebook(void) {
 
 int	Phonebook::add_contact(void) {
 
-	std::string	field[5];
-
-	std::cout << "Entering new contact" << std::endl;
-	std::cout << "first name: " << std::endl;
-	std::cin >> field[0];
-	std::cout << "last name: " << std::endl;
-	std::cin >> field[1];
-	std::cout << "nickname: " << std::endl;
-	std::cin >> field[2];
-	std::cout << "phone number: " << std::endl;
-	std::cin >> field[3];
-	std::cout << "darkest secret: " << std::endl;
-	std::cin >> field[4];
+	this->_contacts[this->_index].create_contact();
+	if (this->_index < 7)
+		this->_index++;
 
 	return (0);
 }

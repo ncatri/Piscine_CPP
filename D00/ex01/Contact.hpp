@@ -22,6 +22,7 @@ public:
 	void		setPhone_number(std::string phonenum);
 	void		setDarkest_secret(std::string secret);
 
+	void		create_contact(void);
 
 
 private:
@@ -31,6 +32,9 @@ private:
 	std::string _nickname;
 	std::string _phone_number;
 	std::string _darkest_secret;
+
+
+	void		enter_field(std::string message, void (Contact::*f)(std::string field));
 
 };
 

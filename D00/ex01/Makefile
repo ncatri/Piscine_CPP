@@ -1,4 +1,4 @@
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror -g3
 CXX = clang++
 
 NAME = phonebook
@@ -17,5 +17,7 @@ test:
 
 fclean:
 	$(RM) $(NAME)
+
+re: fclean $(NAME)
 
 .PHONY:	clean fclean
