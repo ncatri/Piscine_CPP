@@ -53,3 +53,46 @@ void	Phonebook::show_content(void) const {
 
 	return;
 }
+
+void	Phonebook::launch(void) {
+
+	std::string cmd;
+
+	while (true)
+	{
+		std::cout << "Please enter a command (SEARCH, ADD or EXIT): ";
+		std::getline(std::cin, cmd);
+		if (cmd == "ADD")
+			this->add_contact();
+		else if (cmd == "SEARCH")
+			this->_search();
+		else if (cmd == "EXIT") {
+			std::cout << "goodbye!" << std::endl;
+			break;
+		}
+		else
+			std::cout << "sorry I didn't understand" << std::endl;
+	}
+	return;
+}
+
+void	Phonebook::_search(void) const {
+
+	std::string 	input;
+	int				input_int;
+
+	this->show_content();
+	if (this->getIndex() > 0) {
+		while (true) {
+			std::cout << "Please enter an index: ";
+			std::getline(std::cin, input);
+			if ((input_int = stoi(input, NULL, 0)) > this->getIndex()) {
+				std::cout << "index out of range, try again please" << std::endl;
+			} else {
+				break;
+			}
+		}
+		this->_contacts[input_int - 1].showComplete();
+	}
+	return;
+}

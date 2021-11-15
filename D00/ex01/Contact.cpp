@@ -100,9 +100,9 @@ void	Contact::showComplete(void) const {
 
 	std::cout << std::setw(20) << "First name: " << this->getFirstname() << std::endl;
 	std::cout << std::setw(20) << "Last name: " << this->getLastname() << std::endl;
-	std::cout << std::setw(20) << "nickname: " << this->getLastname() << std::endl;
-	std::cout << std::setw(20) << "phone number: " << this->getLastname() << std::endl;
-	std::cout << std::setw(20) << "darkest secret: " << this->getLastname() << std::endl;
+	std::cout << std::setw(20) << "nickname: " << this->getNickname() << std::endl;
+	std::cout << std::setw(20) << "phone number: " << this->getPhone_number() << std::endl;
+	std::cout << std::setw(20) << "darkest secret: " << this->getDarkest_secret() << std::endl;
 
 	return;
 }

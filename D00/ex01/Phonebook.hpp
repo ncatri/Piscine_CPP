@@ -14,12 +14,14 @@ public:
 	
 	int 	add_contact(void);
 	void	show_content(void) const;
+	void	launch(void);
 
 private:
 
 	Contact	_contacts[8];
 	int		_index;
 	void	_increment_index(void);
+	void	_search(void) const;
 
 };
 
