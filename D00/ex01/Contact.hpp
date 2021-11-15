@@ -23,6 +23,8 @@ public:
 	void		setDarkest_secret(std::string secret);
 
 	void		create_contact(void);
+	void		showAbstract(const std::string sep, const size_t width, const int index) const;
+	void		showComplete(void) const;
 
 
 private:
@@ -34,7 +36,8 @@ private:
 	std::string _darkest_secret;
 
 
-	void		enter_field(std::string message, void (Contact::*f)(std::string field));
+	void			_enter_field(std::string message, void (Contact::*f)(std::string field));
+	std::string		_getFormatted_field(const std::string field, const size_t width) const;
 
 };
 

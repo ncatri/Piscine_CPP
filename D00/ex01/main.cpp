@@ -7,5 +7,6 @@ int main (void)
 	Phonebook phonebook;
 
 	phonebook.add_contact();
+	phonebook.show_content();
 
 }
