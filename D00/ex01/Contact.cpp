@@ -7,7 +7,6 @@ Contact::Contact(void) {
 }
 
 Contact::~Contact(void) {
-	std::cout << this->_firstname << ' ' << this->_lastname << " is deleted" << std::endl;
 	return ;
 }
 
@@ -53,10 +52,14 @@ void	Contact::setDarkest_secret(std::string secret) {
 
 void	Contact::_enter_field(std::string message, void (Contact::*f)(std::string field)) {
 
-	std::string	buffer;
+	std::string	buffer = "";
 
 	std::cout << message;
 	std::getline(std::cin, buffer);
+	if (std::cin.eof()) {
+		std::cin.clear();
+		buffer = "";
+	}
 	(this->*f)(buffer);
 
 	return;

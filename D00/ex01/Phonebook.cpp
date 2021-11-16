@@ -26,7 +26,7 @@ int		Phonebook::getIndex(void) const {
 
 int	Phonebook::add_contact(void) {
 
-	this->_contacts[this->_index].create_contact();
+	this->_contacts[this->getIndex()].create_contact();
 	this->_increment_index();
 
 	return (0);
@@ -62,8 +62,10 @@ void	Phonebook::launch(void) {
 	{
 		std::cout << "Please enter a command (SEARCH, ADD or EXIT): ";
 		std::getline(std::cin, cmd);
-		if (std::cin.eof())
-			break;
+		if (std::cin.eof()) {
+			std::cout << std::endl;
+			cmd = "EXIT";
+		}
 		if (cmd == "ADD")
 			this->add_contact();
 		else if (cmd == "SEARCH")
@@ -80,21 +82,22 @@ void	Phonebook::launch(void) {
 
 void	Phonebook::_search(void) const {
 
-	std::string 	input;
 	int				input_int;
 
 	this->show_content();
 	if (this->getIndex() > 0) {
-		while (true) {
-			std::cout << "Please enter an index: ";
-			std::getline(std::cin, input);
-			if ((input_int = stoi(input, NULL, 0)) > this->getIndex()) {
-				std::cout << "index out of range, try again please" << std::endl;
-			} else {
-				break;
-			}
+		std::cout << "Please enter an index: ";
+		std::cin >> input_int;
+		while (!std::cin || input_int > this->getIndex() || input_int <= 0) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "wrong input, enter integer inferior at number of entries: ";
+			std::cin >> input_int;
 		}
 		this->_contacts[input_int - 1].showComplete();
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
+
 	return;
 }
