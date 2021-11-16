@@ -62,6 +62,8 @@ void	Phonebook::launch(void) {
 	{
 		std::cout << "Please enter a command (SEARCH, ADD or EXIT): ";
 		std::getline(std::cin, cmd);
+		if (std::cin.eof())
+			break;
 		if (cmd == "ADD")
 			this->add_contact();
 		else if (cmd == "SEARCH")
