@@ -15,7 +15,7 @@ void	Phonebook::_increment_index(void) {
 
 	if (this->getIndex() < 7)
 		this->_index++;
-
+//	std::cout << "in increment_index, index: " << this->_index << std::endl;
 	return;
 }
 
@@ -26,7 +26,10 @@ int		Phonebook::getIndex(void) const {
 
 int	Phonebook::add_contact(void) {
 
-	this->_contacts[this->getIndex()].create_contact();
+	Contact	new_contact;
+
+	new_contact.create_contact();
+	this->_contacts[this->getIndex()] = new_contact;
 	this->_increment_index();
 
 	return (0);
@@ -47,8 +50,12 @@ void	Phonebook::show_content(void) const {
 	std::cout << separator << std::setw(width) << "phone" << separator << std::endl;
 	std::cout << line << std::endl;
 	for (int i = 0; i < this->getIndex(); ++i) {
+//		std::cout << "in show_content, index: " << this->getIndex() << std::endl;
+		std::cout << "in show_content, i: " << i << std::endl;
 		this->_contacts[i].showAbstract(separator, width, i + 1); 
 	}
+	if (this->getIndex() == 7)
+		this->_contacts[7].showAbstract(separator, width, 8); 
 	std::cout << line << std::endl;
 
 	return;
@@ -82,17 +89,33 @@ void	Phonebook::launch(void) {
 
 void	Phonebook::_search(void) const {
 
-	int				input_int;
+	std::string					user_input;
+	int							input_int = 0;
+	//std::string::size_type		idx;
 
 	this->show_content();
 	if (this->getIndex() > 0) {
-		std::cout << "Please enter an index: ";
-		std::cin >> input_int;
-		while (!std::cin || input_int > this->getIndex() || input_int <= 0) {
+		
+		while (true) {
+			std::cout << "Please enter an index: ";
+			std::getline(std::cin, user_input);
+			if (std::cin.eof()) {
+				std::cin.clear();
+				std::cout << "cin.eof()" << std::endl;
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+			if (!my_is_number(user_input)) {
+				std::cout << "Invalid input." << std::endl;
+			}
+			else {
+				input_int = std::stoi(user_input);
+				if (input_int <= 0 || input_int > this->getIndex())
+					std::cout << "index not in valid range." << std::endl;
+				else
+					break;
 			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "wrong input, enter integer inferior at number of entries: ";
-			std::cin >> input_int;
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max());
+			}
 		}
 		this->_contacts[input_int - 1].showComplete();
 		std::cin.clear();
@@ -100,4 +123,13 @@ void	Phonebook::_search(void) const {
 	}
 
 	return;
+}
+
+bool	my_is_number(const std::string str) {
+
+	std::string::const_iterator it = str.begin();
+
+	while (it != str.end() && std::isdigit(*it))
+		++it;
+	return (!str.empty() && it == str.end());
 }

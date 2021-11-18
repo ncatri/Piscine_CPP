@@ -11,7 +11,7 @@ public:
 	~Phonebook(void);
 
 	int		getIndex(void) const;
-	
+
 	int 	add_contact(void);
 	void	show_content(void) const;
 	void	launch(void);
@@ -24,5 +24,7 @@ private:
 	void	_search(void) const;
 
 };
+
+bool	my_is_number(const std::string str);
 
 #endif
