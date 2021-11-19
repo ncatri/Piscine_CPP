@@ -55,7 +55,7 @@ void	Contact::_enter_field(std::string message, void (Contact::*f)(std::string f
 	std::string	buffer = "";
 
 	std::cout << message;
-	std::getline(std::cin, buffer);
+	std::getline(std::cin >> std::ws, buffer);
 	if (std::cin.eof()) {
 		std::cin.clear();
 		buffer = "";
@@ -84,7 +84,13 @@ std::string		Contact::_getFormatted_field(const std::string field, const size_t 
 		toShow = field.substr(0, width - 1) + ".";
 	else
 		toShow = field;
-
+	
+	size_t i = 0;
+	while (i < toShow.size()) {
+		if (toShow[i] == '\t')
+			toShow[i] = ' ';
+		++i;
+	}
 	return (toShow);
 }
 
