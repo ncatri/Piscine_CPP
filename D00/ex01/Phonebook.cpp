@@ -3,7 +3,7 @@
 #include <iomanip>
 
 Phonebook::Phonebook(void) {
-	this->_index = 0;
+	this->_index = -1;
 	return;
 }
 
@@ -15,7 +15,6 @@ void	Phonebook::_increment_index(void) {
 
 	if (this->getIndex() < 7)
 		this->_index++;
-//	std::cout << "in increment_index, index: " << this->_index << std::endl;
 	return;
 }
 
@@ -26,11 +25,8 @@ int		Phonebook::getIndex(void) const {
 
 int	Phonebook::add_contact(void) {
 
-	Contact	new_contact;
-
-	new_contact.create_contact();
-	this->_contacts[this->getIndex()] = new_contact;
 	this->_increment_index();
+	this->_contacts[this->getIndex()].create_contact();
 
 	return (0);
 }
@@ -49,13 +45,9 @@ void	Phonebook::show_content(void) const {
 	std::cout << separator << std::setw(width) << "last name";
 	std::cout << separator << std::setw(width) << "phone" << separator << std::endl;
 	std::cout << line << std::endl;
-	for (int i = 0; i < this->getIndex(); ++i) {
-//		std::cout << "in show_content, index: " << this->getIndex() << std::endl;
-		std::cout << "in show_content, i: " << i << std::endl;
+	for (int i = 0; i <= this->getIndex(); ++i) {
 		this->_contacts[i].showAbstract(separator, width, i + 1); 
 	}
-	if (this->getIndex() == 7)
-		this->_contacts[7].showAbstract(separator, width, 8); 
 	std::cout << line << std::endl;
 
 	return;
@@ -91,35 +83,31 @@ void	Phonebook::_search(void) const {
 
 	std::string					user_input;
 	int							input_int = 0;
-	//std::string::size_type		idx;
 
 	this->show_content();
-	if (this->getIndex() > 0) {
+	if (this->getIndex() >= 0) {
 		
 		while (true) {
 			std::cout << "Please enter an index: ";
 			std::getline(std::cin, user_input);
 			if (std::cin.eof()) {
 				std::cin.clear();
-				std::cout << "cin.eof()" << std::endl;
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				break;
 			}
 			if (!my_is_number(user_input)) {
 				std::cout << "Invalid input." << std::endl;
 			}
 			else {
 				input_int = std::stoi(user_input);
-				if (input_int <= 0 || input_int > this->getIndex())
+				if (input_int <= 0 || input_int > this->getIndex() + 1)
 					std::cout << "index not in valid range." << std::endl;
 				else
 					break;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max());
 			}
 		}
-		this->_contacts[input_int - 1].showComplete();
+		if (input_int)
+			this->_contacts[input_int - 1].showComplete();
 		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 
 	return;

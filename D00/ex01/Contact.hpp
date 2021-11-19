@@ -29,13 +29,13 @@ public:
 
 private:
 
+
 	std::string	_firstname;
 	std::string _lastname;
 	std::string _nickname;
 	std::string _phone_number;
 	std::string _darkest_secret;
-
-
+	
 	void			_enter_field(std::string message, void (Contact::*f)(std::string field));
 	std::string		_getFormatted_field(const std::string field, const size_t width) const;
 
