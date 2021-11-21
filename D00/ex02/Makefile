@@ -1,4 +1,4 @@
-CPPFLAGS = -Wall -Wextra -Werror -g3
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -g3
 CXX = clang++
 
 NAME = bankster
@@ -10,11 +10,11 @@ OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
 
 HEADERS = $(SRCS:.cpp=.hpp)
 
-$(OBJS_FOLDER)/%.o: $(SRCS) $(HEADERS)
+$(OBJS_FOLDER)/%.o: %.cpp $(HEADERS)
 	@mkdir -p $(dir $@)
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS) $(HEADERS)
+$(NAME): $(OBJS) $(HEADERS) tests.cpp
 	$(CXX) $(CPPFLAGS) $(OBJS) tests.cpp -o $(NAME)
 
 benchmark: $(NAME)

@@ -1,4 +1,4 @@
-CPPFLAGS = -Wall -Wextra -Werror -g3
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -g3
 CXX = clang++
 
 NAME = phonebook
@@ -6,18 +6,27 @@ NAME = phonebook
 SRCS = Contact.cpp \
 	   Phonebook.cpp
 
+OBJS_FOLDER = bin
+OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
+
 HEADERS = $(SRCS:.cpp=.hpp)
 
-$(NAME): $(SRCS) $(HEADERS) main.cpp
-	$(CXX) $(CPPFLAGS) $(SRCS) main.cpp -o $(NAME)
+$(OBJS_FOLDER)/%.o: %.cpp $(HEADERS)
+	@mkdir -p $(dir $@)
+	$(CXX) $(CPPFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS) $(HEADERS) main.cpp
+	$(CXX) $(CPPFLAGS) $(OBJS) main.cpp -o $(NAME)
 
 test:
-	echo $(HEADERS)
-	echo $(SRCS)
+	echo sources: $(SRCS)
+	echo objets: $(OBJS)
+clean:
+	$(RM) -r $(OBJS_FOLDER)
 
 fclean:
 	$(RM) $(NAME)
 
 re: fclean $(NAME)
 
-.PHONY:	clean fclean
+.PHONY:	clean fclean re

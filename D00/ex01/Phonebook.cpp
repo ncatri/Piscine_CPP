@@ -1,6 +1,8 @@
 #include "Phonebook.hpp"
 #include <iostream>
+#include <sstream>
 #include <iomanip>
+#include <cstdlib>
 
 Phonebook::Phonebook(void) {
 	this->_index = -1;
@@ -98,7 +100,7 @@ void	Phonebook::_search(void) const {
 				std::cout << "Invalid input." << std::endl;
 			}
 			else {
-				input_int = std::stoi(user_input);
+				std::istringstream(user_input) >> input_int;
 				if (input_int <= 0 || input_int > this->getIndex() + 1)
 					std::cout << "index not in valid range." << std::endl;
 				else
