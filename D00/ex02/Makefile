@@ -15,13 +15,21 @@ $(OBJS_FOLDER)/%.o: $(SRCS) $(HEADERS)
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS) $(HEADERS)
-	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(OBJS) tests.cpp -o $(NAME)
+
+benchmark: $(NAME)
+	./bankster | cut -d " " -f2 > my.log
+	cat 19920104_091532.log | cut -d " " -f 2 > result.log
+	diff my.log result.log
+
 
 clean:
 	$(RM) -r $(OBJS_FOLDER)
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) my.log
+	$(RM) result.log
 
 re: fclean $(NAME)
 

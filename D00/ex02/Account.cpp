@@ -17,6 +17,12 @@ Account::Account( int initial_deposit) {
 }
 
 Account::~Account( void ) {
+
+	this->_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex << ';'
+		<< "amount:" << this->_amount << ';'
+		<< "closed" << std::endl;
+	Account::_nbAccounts--;
 	return ;
 }
 
@@ -80,8 +86,10 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 		ret_val = false;
 		std::cout << "refused" << std::endl;
 	} else {
+		std::cout << withdrawal << ';';
 		this->_amount -= withdrawal;
-		Account::_nbWithdrawals++;
+		this->_nbWithdrawals++;
+		Account::_totalNbWithdrawals++;
 		Account::_totalAmount -= withdrawal;
 		std::cout << "amount:" << this->_amount << ';'
 			<< "nb_withdrawals:" << this->_nbWithdrawals << std::endl;
@@ -98,15 +106,20 @@ void	Account::displayStatus( void ) const {
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ';'
 		<< "amount:" << this->_amount << ';'
-		<< "deposits:" << this->getNbDeposits() << ';'
-		<< "withdrawals:" << this->getNbWithdrawals() << std::endl; 
+		<< "deposits:" << this->_nbDeposits << ';'
+		<< "withdrawals:" << this->_nbWithdrawals << std::endl; 
 	return;
 }
 
 void	Account::_displayTimestamp( void ) {
 
+# ifdef __linux
+	time_t t = time(0);   // get time now
+    tm *now = localtime(&t);
+# else
 	std::time_t t = std::time(0);   // get time now
     std::tm *now = std::localtime(&t);
+# endif
     std::cout << '[' << (now->tm_year + 1900) << (now->tm_mon + 1) <<  now->tm_mday 
 		<< '_' << now->tm_hour << now->tm_min << now->tm_sec << "] ";
 }
