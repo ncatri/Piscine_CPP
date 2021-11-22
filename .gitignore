@@ -1,6 +1,10 @@
 *.dSYM
 *.swp
-megaphone
-phonebook
 *.vim
 */*/bin/
+
+
+
+megaphone
+phonebook
+zombiz
