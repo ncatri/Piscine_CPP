@@ -4,7 +4,8 @@ CXX = clang++
 NAME = violence
 
 SRCS = Weapon.cpp \
-	   HumanA.cpp
+	   HumanA.cpp \
+	   HumanB.cpp
 
 OBJS_FOLDER = bin
 OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
