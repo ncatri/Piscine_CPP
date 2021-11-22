@@ -12,10 +12,9 @@ Weapon::~Weapon( void ) {
 	return;
 }
 
-const std::string&	Weapon::getType( void ) {
+std::string const& 	Weapon::getType( void ) const {
 
-	const std::string& constref = this->_type;
-	return (constref);
+	return (this->_type);
 }
 
 void	Weapon::setType( const std::string type ) {
