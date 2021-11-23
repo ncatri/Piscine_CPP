@@ -18,6 +18,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) *.replace
 
 re: fclean $(NAME)
 
