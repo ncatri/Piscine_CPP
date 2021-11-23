@@ -2,7 +2,7 @@
 *.swp
 *.vim
 */*/bin/
-
+*.o
 
 
 megaphone
@@ -10,3 +10,4 @@ phonebook
 zombiz
 string
 violence
+replace
