@@ -3,12 +3,14 @@ CXX = clang++
 
 NAME = zombiz
 
-SRCS = Zombie.cpp
+SRCS = Zombie.cpp 		\
+	   newZombie.cpp 	\
+	   randomChump.cpp
 
 OBJS_FOLDER = bin
 OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
 
-HEADERS = $(SRCS:.cpp=.hpp)
+HEADERS = Zombie.hpp 
 
 $(OBJS_FOLDER)/%.o: %.cpp $(HEADERS)
 	@mkdir -p $(dir $@)

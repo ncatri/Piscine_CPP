@@ -1,20 +1,6 @@
 #include <iostream>
 #include "Zombie.hpp"
 
-Zombie*	newZombie( std::string name ) {
-
-	Zombie*	ptr = new Zombie(name);
-	return (ptr);
-}
-
-void	randomChump( std::string name ) {
-
-	Zombie zombie(name);
-	zombie.announce();
-
-	return;
-}
-
 int main(void) {
 
 	std::cout << "\tlet's allocate zombies on the stack" << std::endl;
