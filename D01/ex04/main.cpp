@@ -2,7 +2,7 @@
 #include <fstream>
 #include <sstream>
 
-std::string	my_replace(std::string word, size_t pos, std::string search, std::string replace);
+std::string	my_replace(std::string word, std::string search, std::string replace);
 
 int main(int argc, char **argv) {
 
@@ -23,16 +23,16 @@ int main(int argc, char **argv) {
 	std::string to_replace = argv[3];
 	std::string to_search = argv[2];
 	for (std::string line; std::getline(ifs, line); ) {
-		size_t pos = line.find(to_search);
-		line = my_replace(line, pos, to_search, to_replace);
+		line = my_replace(line, to_search, to_replace);
 		ofs << line << std::endl;
 	}
 	ifs.close();	
 	ofs.close();
 }
 
-std::string	my_replace(std::string line, size_t pos, std::string search, std::string replace) {
+std::string	my_replace(std::string line, std::string search, std::string replace) {
 
+	size_t pos = line.find(search);
 	while (pos != std::string::npos) {
 		std::string prefix = line.substr(0, pos);
 		std::string suffix = line.substr(pos + search.size());
