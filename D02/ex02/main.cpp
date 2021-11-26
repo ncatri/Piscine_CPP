@@ -37,6 +37,10 @@ int main( void ) {
 	std:: cout << "a + b + 0.21: " << a + b + Fixed(0.21f) << std::endl;
 	std::cout << "a - b: " << a - b << std::endl;
 	std::cout << "a - b - 10: " << a - b - Fixed(10) << std::endl;
+	a = Fixed(15);
+	b = Fixed(6.5f);
+	std::cout << "new values. a: " << a << ", b: " << b << std::endl;
+	std::cout << " a * b :" << a * b << ", a / b: " << a / b << std::endl;
 
 	return (0);
 }

@@ -119,7 +119,18 @@ Fixed	Fixed::operator+( Fixed const& rhs ) {
 
 Fixed	Fixed::operator-( Fixed const& rhs ) {
 
-//	Fixed	lhs = *this;
-//	float	new_value = lhs.toFloat() - rhs.toFloat();
 	return ( Fixed(this->toFloat() - rhs.toFloat()) );
 }
+
+Fixed	Fixed::operator*( Fixed const& rhs ) {
+
+	return ( Fixed(this->toFloat() * rhs.toFloat()) );
+}
+
+Fixed	Fixed::operator/( Fixed const& rhs ) {
+
+	return ( Fixed(this->toFloat() / rhs.toFloat()) );
+}
+
+Fixed&	Fixed::operator++( void ) {
+
