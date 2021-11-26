@@ -41,6 +41,10 @@ int main( void ) {
 	b = Fixed(6.5f);
 	std::cout << "new values. a: " << a << ", b: " << b << std::endl;
 	std::cout << " a * b :" << a * b << ", a / b: " << a / b << std::endl;
+	a = Fixed(0);
+	std::cout << "a: " << a << ". ++a:" << ++a << std::endl;
+	std::cout << "a++ : " << a++ << std::endl;
+	std::cout << "a: " << a << " , --a: " << --a << " a--: " << a-- << std::endl;
 
 	return (0);
 }

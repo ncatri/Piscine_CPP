@@ -134,3 +134,26 @@ Fixed	Fixed::operator/( Fixed const& rhs ) {
 
 Fixed&	Fixed::operator++( void ) {
 
+	this->_value++;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(	int ) {
+
+	Fixed old = *this;
+	++old;
+	return (old);
+}
+
+Fixed&	Fixed::operator--( void ) {
+//prefix
+	this->_value--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--( int ) {
+//postfix
+	Fixed old = *this;
+	--old;
+	return (old);
+}

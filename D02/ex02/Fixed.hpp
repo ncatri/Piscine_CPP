@@ -29,6 +29,9 @@ class Fixed {
 		Fixed	operator/( Fixed const& rhs );
 		/*	increment and decrement */
 		Fixed&	operator++( void ); //prefix increment
+		Fixed	operator++(	int );	//postfix increment
+		Fixed&	operator--(void ); //prefix decrement
+		Fixed	operator--(	int );	//postfix decrement
 
 		int		getRawBits( void ) const;
 		void	setRawBits(int const raw);
