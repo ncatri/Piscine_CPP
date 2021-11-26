@@ -33,6 +33,11 @@ class Fixed {
 		Fixed&	operator--(void ); //prefix decrement
 		Fixed	operator--(	int );	//postfix decrement
 
+		static Fixed& 		min( Fixed& a, Fixed& b );
+		static Fixed const& min( Fixed const& a, Fixed const& b );
+		static Fixed& 		max( Fixed& a, Fixed& b );
+		static Fixed const& max( Fixed const& a, Fixed const& b );
+
 		int		getRawBits( void ) const;
 		void	setRawBits(int const raw);
 		int		toInt( void ) const;

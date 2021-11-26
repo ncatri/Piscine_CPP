@@ -157,3 +157,39 @@ Fixed	Fixed::operator--( int ) {
 	--old;
 	return (old);
 }
+
+Fixed& Fixed::min( Fixed& a, Fixed& b ) {
+	
+	std::cout << "in 1st min()" << std::endl;
+	if (a <= b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed const& Fixed::min( Fixed const& a, Fixed const& b ) {
+	
+	std::cout << "in overloaded min()" << std::endl;
+	if (a <= b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed& Fixed::max( Fixed& a, Fixed& b ) {
+	
+	std::cout << "in 1st max()" << std::endl;
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed const& Fixed::max( Fixed const& a, Fixed const& b ) {
+	
+	std::cout << "in overloaded max()" << std::endl;
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}

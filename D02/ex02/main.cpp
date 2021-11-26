@@ -45,6 +45,14 @@ int main( void ) {
 	std::cout << "a: " << a << ". ++a:" << ++a << std::endl;
 	std::cout << "a++ : " << a++ << std::endl;
 	std::cout << "a: " << a << " , --a: " << --a << " a--: " << a-- << std::endl;
+	a = Fixed(24.97f);
+	b = Fixed(23.3487f);
+	std::cout << "a: " << a << ",b: " << b << ", function min(a, b) : " << Fixed::min(a, b) << std::endl;
+	const Fixed c_a = Fixed(-3.14f);
+	const Fixed c_b = Fixed(-0.14f);
+	std::cout << "c_a: " << c_a << ",c_b: " << c_b << ", function min(c_a, c_b) : " << Fixed::min(c_a, c_b) << std::endl;
 
+	std::cout << "a: " << a << ",b: " << b << ", function max(a, b) : " << Fixed::max(a, b) << std::endl;
+	std::cout << "c_a: " << c_a << ",c_b: " << c_b << ", function max(c_a, c_b) : " << Fixed::max(c_a, c_b) << std::endl;
 	return (0);
 }
