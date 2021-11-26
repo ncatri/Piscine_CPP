@@ -1,6 +1,7 @@
 #include "Fixed.hpp"
 #include <iostream>
 #include <bitset>
+#include <cmath>
 
 const int Fixed::_fractional_bits = 8;
 
@@ -51,7 +52,7 @@ Fixed::Fixed( int const int_num ) {
 Fixed::Fixed( float const float_num ) {
 
 	std::cout << "Float constructor called" << std::endl;
-	this->_value = float_num * ( 1 << Fixed::_fractional_bits);
+	this->_value = roundf(float_num * ( 1 << Fixed::_fractional_bits));
 }
 
 int		Fixed::toInt( void ) const {
