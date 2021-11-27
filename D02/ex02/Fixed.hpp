@@ -23,10 +23,10 @@ class Fixed {
 		bool	operator!=( Fixed const& rhs ) const;
 		/* arithmetic operator */
 		Fixed&	operator+=( Fixed const& rhs );
-		Fixed	operator+( Fixed const& rhs );
-		Fixed	operator-( Fixed const& rhs );
-		Fixed	operator*( Fixed const& rhs );
-		Fixed	operator/( Fixed const& rhs );
+		Fixed	operator+( Fixed const& rhs ) const;
+		Fixed	operator-( Fixed const& rhs ) const;
+		Fixed	operator*( Fixed const& rhs ) const;
+		Fixed	operator/( Fixed const& rhs ) const;
 		/*	increment and decrement */
 		Fixed&	operator++( void ); //prefix increment
 		Fixed	operator++(	int );	//postfix increment

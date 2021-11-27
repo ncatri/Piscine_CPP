@@ -112,23 +112,23 @@ Fixed&	Fixed::operator+=( Fixed const& rhs ) {
 	return (*this);
 }
 
-Fixed	Fixed::operator+( Fixed const& rhs ) {
+Fixed	Fixed::operator+( Fixed const& rhs ) const {
 
 	Fixed	lhs = *this;
 	return ( lhs += rhs );
 }
 
-Fixed	Fixed::operator-( Fixed const& rhs ) {
+Fixed	Fixed::operator-( Fixed const& rhs ) const {
 
 	return ( Fixed(this->toFloat() - rhs.toFloat()) );
 }
 
-Fixed	Fixed::operator*( Fixed const& rhs ) {
+Fixed	Fixed::operator*( Fixed const& rhs ) const {
 
 	return ( Fixed(this->toFloat() * rhs.toFloat()) );
 }
 
-Fixed	Fixed::operator/( Fixed const& rhs ) {
+Fixed	Fixed::operator/( Fixed const& rhs ) const {
 
 	return ( Fixed(this->toFloat() / rhs.toFloat()) );
 }

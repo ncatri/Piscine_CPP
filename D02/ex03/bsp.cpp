@@ -1,14 +1,14 @@
 #include "Point.hpp"
 #include <iostream>
 
-float	sign(Point p1, Point p2, Point p3) {
+Fixed	sign(Point p1, Point p2, Point p3) {
 
-	return ( (p1.getX().toFloat() - p3.getX().toFloat()) * (p2.getY().toFloat() - p3.getY().toFloat()) - (p2.getX().toFloat() - p3.getX().toFloat()) * (p1.getY().toFloat() - p3.getY().toFloat()) );
+	return ( (p1.getX() - p3.getX()) * (p2.getY() - p3.getY()) - (p2.getX() - p3.getX()) * (p1.getY() - p3.getY()) );
 }
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point) {
 
-	float d1, d2, d3;
+	Fixed d1, d2, d3;
 	bool has_neg, has_pos;
 
 	d1 = sign(point, a, b);

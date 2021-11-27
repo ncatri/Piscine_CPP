@@ -25,7 +25,7 @@ class Point {
 
 std::ostream& operator<<( std::ostream& o, Point const& pt ); 
 
-float	sign(Point const p1, Point const p2, Point const p3);
+Fixed	sign(Point const p1, Point const p2, Point const p3);
 bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif
