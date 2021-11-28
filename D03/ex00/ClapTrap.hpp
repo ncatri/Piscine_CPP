@@ -6,6 +6,8 @@
 class ClapTrap {
 
 	public:
+
+		ClapTrap( void );
 		ClapTrap( std::string const name );
 		ClapTrap( ClapTrap const& src );
 		~ClapTrap( void );
@@ -13,7 +15,10 @@ class ClapTrap {
 		ClapTrap&	operator=( ClapTrap const& rhs );
 
 		std::string	getName( void ) const;
+		void		setName( std::string name );
 		int			getHitPoints( void ) const;
+		int			getEnergyPoints( void ) const;
+		int			getAttackDamage( void ) const;
 
 		void	attack( std::string const& target );
 		void	takeDamage( unsigned int amount );
@@ -27,5 +32,7 @@ class ClapTrap {
 		int			_attackDamage;
 
 };
+
+std::ostream&	operator<<(std::ostream& o, ClapTrap const& rhs);
 
 #endif
