@@ -142,7 +142,7 @@ Fixed&	Fixed::operator++( void ) {
 Fixed	Fixed::operator++(	int ) {
 
 	Fixed old = *this;
-	++old;
+	++(*this);
 	return (old);
 }
 
@@ -155,7 +155,7 @@ Fixed&	Fixed::operator--( void ) {
 Fixed	Fixed::operator--( int ) {
 //postfix
 	Fixed old = *this;
-	--old;
+	--(*this);
 	return (old);
 }
 
