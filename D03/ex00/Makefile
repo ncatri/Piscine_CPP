@@ -1,7 +1,7 @@
 CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -g3
 CXX = clang++
 
-NAME = claptrap
+NAME = run
 
 SRCS = ClapTrap.cpp
 

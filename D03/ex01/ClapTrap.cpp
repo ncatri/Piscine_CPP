@@ -3,32 +3,32 @@
 ClapTrap::ClapTrap( void ) :
 	_name("no_name"), _hitPoints(0), _energyPoints(0), _attackDamage(0) {
 
-	std::cout << "default constructor called" << std::endl;
+	std::cout << "Claptrap default constructor called" << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap( std::string const name ) : 
 	_name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 
-	std::cout << "Parametric constructor called" << std::endl;
+	std::cout << "Claptrap parametric constructor called" << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap( ClapTrap const& src ) {
 
-	std::cout << "copy constructor called "<< std::endl;
+	std::cout << "Claptrap copy constructor called "<< std::endl;
 	*this = src;
 }
 
 ClapTrap::~ClapTrap( void ) {
 
-	std::cout << this->_name << " is destructed" << std::endl;
+	std::cout << "Claptrap destructor called" << std::endl;
 	return;
 }
 
 ClapTrap&	ClapTrap::operator=( ClapTrap const& rhs ) {
 
-	std::cout << "overload of assignment operator called" << std::endl;
+	std::cout << "Claptrap overload of assignment operator called" << std::endl;
 
 	this->_name = rhs.getName();
 	this->_hitPoints = rhs.getHitPoints();
