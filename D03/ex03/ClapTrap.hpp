@@ -1,7 +1,7 @@
 #ifndef CLAPTRAP_H
 #	define CLAPTRAP_H
 
-#include <iostream>
+#	include <iostream>
 
 class ClapTrap {
 

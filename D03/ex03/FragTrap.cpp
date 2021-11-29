@@ -13,6 +13,7 @@ FragTrap::FragTrap( std::string name ) {
 FragTrap::FragTrap( FragTrap const& src ) : ClapTrap(src) {
 
 	std::cout << "FragTrap default constructor called" << std::endl;
+	return;
 }
 
 FragTrap::~FragTrap( ) {
