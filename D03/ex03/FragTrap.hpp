@@ -1,5 +1,5 @@
-#ifndef SCAVTRAP_H
-#	define SCAVTRAP_H
+#ifndef FRAGTRAP_H
+#	define FRAGTRAP_H
 
 #	include <iostream>
 #	include "ClapTrap.hpp"
@@ -8,6 +8,7 @@ class FragTrap : virtual public ClapTrap {
 
 	public:
 
+		FragTrap( void );
 		FragTrap( std::string name );
 		FragTrap( FragTrap const& src );
 		~FragTrap( void );
@@ -18,7 +19,6 @@ class FragTrap : virtual public ClapTrap {
 
 	private:
 
-		FragTrap( void );
 
 };
 

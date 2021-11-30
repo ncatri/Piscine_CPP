@@ -1,5 +1,10 @@
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap( void ) {
+	std::cout << "FragTrap default constructor called" << std::endl;
+		return;
+}
+
 FragTrap::FragTrap( std::string name ) { 
 
 	std::cout << "FragTrap parametric constructor called" << std::endl;

@@ -7,8 +7,8 @@ ClapTrap::ClapTrap( void ) :
 	return;
 }
 
-ClapTrap::ClapTrap( std::string const name ) : 
-	_name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+ClapTrap::ClapTrap( std::string const name , int hp = 10, int ep = 10, int ad = 0) : 
+	_name(name), _hitPoints(hp), _energyPoints(ep), _attackDamage(ad) {
 
 	std::cout << "Claptrap parametric constructor called" << std::endl;
 	return;
@@ -53,7 +53,7 @@ void	ClapTrap::attack( std::string const& target ) {
 
 	if (this->_hitPoints > 0) {
 		this->_hitPoints--;
-		std::cout << this->_name << " attacks " << target << " , causing ";
+		std::cout << this->_name << " the ClapTrap attacks " << target << " , causing ";
 		std::cout << this->_attackDamage << " points of damage!" << std::endl;
 	} else {
 		std::cout << this->_name << " doesn't have enough hit points" << std::endl;
