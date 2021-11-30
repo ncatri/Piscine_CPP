@@ -28,8 +28,21 @@ ScavTrap&	ScavTrap::operator=( ScavTrap const& rhs ) {
 	return (*this);
 }
 
-void	ScavTrap::guardGate( void ) {
+void	ScavTrap::guardGate( void ) const {
 
 	std::cout << "ScavTrap " << this->getName() << " entered Gate keeper mode" << std::endl;
 	return;
 }
+
+void	ScavTrap::attack( std::string const& target ) {
+
+	if (this->_hitPoints > 0) {
+		this->_hitPoints--;
+		std::cout << this->_name << " the ScavTrap attacks " << target << " , causing ";
+		std::cout << this->_attackDamage << " points of damage!" << std::endl;
+	} else {
+		std::cout << this->_name << " doesn't have enough hit points" << std::endl;
+	}
+	return;
+}
+
