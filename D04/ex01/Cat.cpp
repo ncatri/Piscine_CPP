@@ -25,12 +25,10 @@ Cat&	Cat::operator=( Cat const& rhs ) {
 	std::cout << "Cat assignment operator called" << std::endl;
 
 	if (this != &rhs) {
-		this->_type = rhs._type;
+		Animal::operator=(rhs);
 		delete this->_brain;
 		this->_brain = new Brain;
-//		std::cout << "--" << std::endl;
-		this->_brain = rhs._brain;
-//		std::cout << "--" << std::endl;
+		*(this->_brain) = *(rhs._brain);
 	}
 	return (*this);
 }

@@ -1,26 +1,21 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "Brain.hpp"
 
 int	main( void ) {
 
-	Animal *j = new Cat();
-	j->showIdeas();
-	j->addIdea("manger");
-	j->addIdea("dormir");
-	j->showIdeas();
-	Animal *i = new Cat();
-	i->showIdeas();
-	std::cout << "--" << std::endl;
-	*i = *j;
-	std::cout << "--" << std::endl;
-	i->addIdea("kill someone");
-	std::cout << "i ideas: ";
-	i->showIdeas();
-	std::cout << "j ideas: ";
-	j->showIdeas();
+	Cat *cat1 = new Cat();
+	Cat *cat2 = new Cat();
+	cat1->addIdea("I'm hungry");
+	cat1->addIdea("I like fish");
+	std::cout << "-- start copy ---" << std::endl;
+	*cat2 = *cat1;
+	std::cout << "-- end copy ---" << std::endl;
+	cat2->addIdea("I will go fishing");
 
-	delete j;
-	delete i;
+	cat1->showIdeas();
+	cat2->showIdeas();
+
+	delete cat1;
+	delete cat2;
 }
