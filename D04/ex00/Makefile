@@ -1,10 +1,13 @@
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -g3
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -g3 -fsanitize=address
 CXX = clang++
 
 NAME = run
 
-SRCS = Animal.cpp \
-	   Cat.cpp
+SRCS = Animal.cpp 		\
+	   Cat.cpp 			\
+	   Dog.cpp 			\
+	   WrongAnimal.cpp	\
+	   WrongCat.cpp		\
 
 OBJS_FOLDER = bin
 OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
