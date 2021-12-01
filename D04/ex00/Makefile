@@ -1,4 +1,4 @@
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -g3 -fsanitize=address
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -g3 #-fsanitize=address
 CXX = clang++
 
 NAME = run
@@ -12,7 +12,7 @@ SRCS = Animal.cpp 		\
 OBJS_FOLDER = bin
 OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
 
-HEADERS = $(SRCS:.cpp:.hpp)
+HEADERS = $(SRCS:.cpp=.hpp)
 
 $(OBJS_FOLDER)/%.o: %.cpp $(HEADERS)
 	@mkdir -p $(dir $@)
@@ -24,6 +24,8 @@ $(NAME): $(OBJS) $(HEADERS) main.cpp
 test:
 	echo sources: $(SRCS)
 	echo objets: $(OBJS)
+	echo headers: $(HEADERS)
+
 clean:
 	$(RM) -r $(OBJS_FOLDER)
 

@@ -10,7 +10,7 @@ class Animal {
 		Animal( void );
 		Animal( std::string type ); //needed to initialize derived class with correct type
 		Animal( Animal const& src );
-		~Animal( void );
+		virtual ~Animal( void );
 		Animal&	operator=( Animal const& rhs );
 
 		std::string		getType( void ) const;

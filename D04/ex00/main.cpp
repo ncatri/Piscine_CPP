@@ -6,21 +6,25 @@
 
 int	main( void ) {
 
-	Animal	*furby = new Animal();
+	const Animal	*furby = new Animal();
 	furby->makeSound();
 	std::cout << "type: " <<  furby->getType() << std::endl << std::endl;
 
-	Animal	*kitty = new Cat();
+	const Animal	*kitty = new Cat();
 	kitty->makeSound();
 	std::cout << "type: " <<  kitty->getType() << std::endl << std::endl;
 
-	Animal	*doggy = new Dog();
+	const Animal	*doggy = new Dog();
 	doggy->makeSound();
 	std::cout << "type: " <<  doggy->getType() << std::endl << std::endl;
 
 	std::cout << std::endl << "--- test Wrong animals ---" << std::endl << std::endl;
-	WrongAnimal	*Wkitty = new WrongCat();
+	const WrongAnimal	*Wkitty = new WrongCat();
 	Wkitty->makeSound();
 	std::cout << "type: " <<  Wkitty->getType() << std::endl;
 
+	delete furby;
+	delete kitty;
+	delete doggy;
+	delete Wkitty;
 }
