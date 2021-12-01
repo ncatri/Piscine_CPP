@@ -11,9 +11,12 @@ class Dog : public Animal {
 		~Dog( void );
 		Dog&	operator=( Dog const& rhs );
 
-		void makeSound( void ) const;
+		void	makeSound( void ) const;
+		void	addIdea( std::string idea );
+		void	showIdeas( void ) const;
 
 	private:
+
 		Brain	*_brain;
 
 };

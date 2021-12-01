@@ -47,4 +47,3 @@ void	Brain::showIdeas( void ) const {
 	}
 	std::cout << std::endl;
 }
-

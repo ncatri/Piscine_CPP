@@ -1,4 +1,4 @@
-CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -g3 -fsanitize=address
+CPPFLAGS = -std=c++98 -Wall -Wextra -Werror -g3 #-fsanitize=address
 CXX = clang++
 
 NAME = run

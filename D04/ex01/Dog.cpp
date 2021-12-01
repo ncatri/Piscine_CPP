@@ -24,11 +24,28 @@ Dog::~Dog( void ) {
 Dog&	Dog::operator=( Dog const& rhs ) {
 	std::cout << "Dog assignment operator called" << std::endl;
 
-	if (this != &rhs)
-		this->_type = rhs._type;
+	Animal::operator=(rhs);
+	if (this != &rhs) {
+		delete this->_brain;
+		this->_brain = new Brain();
+		*(this->_brain) = *(rhs._brain);
+	}
+
 	return (*this);
 }
 
 void	Dog::makeSound( void ) const {
 	std::cout << "woof woof" << std::endl;
+}
+
+void	Dog::addIdea( std::string idea ) {
+
+	this->_brain->addIdea(idea);
+	return;
+}
+
+void	Dog::showIdeas( void ) const {
+
+	this->_brain->showIdeas();
+	return;
 }

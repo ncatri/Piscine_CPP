@@ -24,7 +24,6 @@ Animal&	Animal::operator=( Animal const& rhs ) {
 	
 	if (this != &rhs) {
 		this->_type = rhs._type; //self assignation guard
-		std::cout << "coucou" << std::endl;
 	}
 	return (*this);
 }

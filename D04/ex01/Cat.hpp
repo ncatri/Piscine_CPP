@@ -11,7 +11,7 @@ class Cat : public Animal {
 		~Cat( );
 		Cat&	operator=( Cat const& rhs );
 
-		void makeSound( void ) const;
+		void 	makeSound( void ) const;
 		void	addIdea( std::string idea );
 		void	showIdeas( void ) const;
 

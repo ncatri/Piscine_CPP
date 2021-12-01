@@ -27,7 +27,7 @@ Cat&	Cat::operator=( Cat const& rhs ) {
 	if (this != &rhs) {
 		Animal::operator=(rhs);
 		delete this->_brain;
-		this->_brain = new Brain;
+		this->_brain = new Brain();
 		*(this->_brain) = *(rhs._brain);
 	}
 	return (*this);
