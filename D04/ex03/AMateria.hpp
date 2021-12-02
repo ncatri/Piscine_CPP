@@ -10,10 +10,9 @@ class AMateria {
 
 	public:
 
-		AMateria( void );
 		AMateria( std::string const& type );
 		AMateria( AMateria const& src );
-		~AMateria( void );
+		virtual	~AMateria( void );
 
 		AMateria&	operator=( AMateria const& rhs );
 
@@ -25,6 +24,7 @@ class AMateria {
 	protected:
 
 		std::string 	_type;
+		AMateria( void );
 
 	private:
 

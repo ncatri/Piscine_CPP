@@ -5,7 +5,8 @@ NAME = run
 
 SRCS = AMateria.cpp 		\
 	   ICharacter.cpp		\
-	   IceMateria.cpp
+	   IceMateria.cpp		\
+	   CureMateria.cpp
 
 OBJS_FOLDER = bin
 OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
