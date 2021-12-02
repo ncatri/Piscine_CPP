@@ -4,7 +4,8 @@ CXX = clang++
 NAME = run
 
 SRCS = AMateria.cpp 		\
-	   ICharacter.cpp		
+	   ICharacter.cpp		\
+	   IceMateria.cpp
 
 OBJS_FOLDER = bin
 OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
