@@ -31,10 +31,3 @@ Animal&	Animal::operator=( Animal const& rhs ) {
 std::string	Animal::getType( void ) const {
 	return (this->_type);
 }
-
-void	Animal::makeSound( void ) const {
-	std::cout << "** generic animal sound **" << std::endl;
-}
-
-void	Animal::addIdea( std::string idea ) { (void)idea; }
-void	Animal::showIdeas( void ) const { }

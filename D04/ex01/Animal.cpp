@@ -35,6 +35,3 @@ std::string	Animal::getType( void ) const {
 void	Animal::makeSound( void ) const {
 	std::cout << "** generic animal sound **" << std::endl;
 }
-
-void	Animal::addIdea( std::string idea ) { (void)idea; }
-void	Animal::showIdeas( void ) const { }
