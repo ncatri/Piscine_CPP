@@ -13,6 +13,7 @@ class IceMateria : public AMateria {
 		IceMateria&	operator=( IceMateria const& rhs );
 
 		AMateria* 	clone( void ) const;
+		void		use( ICharacter& target );
 
 	private:
 

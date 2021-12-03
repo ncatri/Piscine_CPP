@@ -13,6 +13,7 @@ class CureMateria : public AMateria {
 		CureMateria&	operator=( CureMateria const& rhs );
 
 		AMateria* 	clone( void ) const;
+		void		use( ICharacter& target );
 
 	private:
 

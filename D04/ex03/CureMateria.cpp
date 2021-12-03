@@ -1,4 +1,5 @@
 #include "CureMateria.hpp"
+#include <iostream>
 
 CureMateria::CureMateria( void ) : AMateria("Cure") { }
 
@@ -22,4 +23,9 @@ AMateria	*CureMateria::clone( void ) const {
 	AMateria	*clone = new CureMateria();
 	*clone = *this;
 	return (clone);
+}
+
+void		CureMateria::use( ICharacter& target ) {
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	return;
 }

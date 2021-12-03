@@ -1,4 +1,5 @@
 #include "IceMateria.hpp"
+#include <iostream>
 
 IceMateria::IceMateria( void ) : AMateria("Ice") { }
 
@@ -22,4 +23,9 @@ AMateria	*IceMateria::clone( void ) const {
 	AMateria	*clone = new IceMateria();
 	*clone = *this;
 	return (clone);
+}
+
+void		IceMateria::use( ICharacter& target ) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	return;
 }

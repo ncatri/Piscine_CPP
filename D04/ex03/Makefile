@@ -6,12 +6,16 @@ NAME = run
 SRCS = AMateria.cpp 		\
 	   ICharacter.cpp		\
 	   IceMateria.cpp		\
-	   CureMateria.cpp
+	   CureMateria.cpp		\
+	   Character.cpp
 
 OBJS_FOLDER = bin
 OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
 
-HEADERS = $(SRCS:.cpp=.hpp)
+HEADERS =	AMateria.hpp 		\
+	   		IceMateria.hpp		\
+	   		CureMateria.hpp		\
+	   		Character.hpp
 
 $(OBJS_FOLDER)/%.o: %.cpp $(HEADERS)
 	@mkdir -p $(dir $@)
