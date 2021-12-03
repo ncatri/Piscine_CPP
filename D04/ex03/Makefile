@@ -4,7 +4,6 @@ CXX = clang++
 NAME = run
 
 SRCS = AMateria.cpp 		\
-	   ICharacter.cpp		\
 	   IceMateria.cpp		\
 	   CureMateria.cpp		\
 	   Character.cpp
@@ -14,6 +13,7 @@ OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
 
 HEADERS =	AMateria.hpp 		\
 	   		IceMateria.hpp		\
+		   	ICharacter.hpp		\
 	   		CureMateria.hpp		\
 	   		Character.hpp
 

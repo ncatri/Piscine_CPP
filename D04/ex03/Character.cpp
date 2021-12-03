@@ -1,11 +1,11 @@
 #include "Character.hpp"
 #include <iostream>
 
-
+/*
 Character::Character( ) {
 	return;
 }
-
+*/
 Character::Character( std::string name) : _name(name) {
 
 	for (int i = 0; i < INVENTORY_SIZE; ++i)
