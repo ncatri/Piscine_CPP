@@ -1,7 +1,7 @@
 #include "IceMateria.hpp"
 #include <iostream>
 
-IceMateria::IceMateria( void ) : AMateria("Ice") { }
+IceMateria::IceMateria( void ) : AMateria("ice") { }
 
 IceMateria::IceMateria( IceMateria const& src ) {
 

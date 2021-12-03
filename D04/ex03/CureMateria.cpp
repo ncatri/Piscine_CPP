@@ -1,7 +1,7 @@
 #include "CureMateria.hpp"
 #include <iostream>
 
-CureMateria::CureMateria( void ) : AMateria("Cure") { }
+CureMateria::CureMateria( void ) : AMateria("cure") { }
 
 CureMateria::CureMateria( CureMateria const& src ) {
 

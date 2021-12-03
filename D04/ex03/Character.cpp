@@ -1,11 +1,10 @@
 #include "Character.hpp"
 #include <iostream>
 
-/*
 Character::Character( ) {
 	return;
 }
-*/
+
 Character::Character( std::string name) : _name(name) {
 
 	for (int i = 0; i < INVENTORY_SIZE; ++i)
@@ -35,12 +34,12 @@ std::string const&	Character::getName( void ) const { return (this->_name); }
 
 void	Character::equip( AMateria *m ) {
 
-	if (m && (m->getType() == "cure" || m->getType() == "ice")) {
+	if (m && (m->getType().compare("cure") == 0 || m->getType().compare("ice") == 0 )) {
 		for (int i = 0; i < INVENTORY_SIZE; ++i) {
 			if ( this->_inventory[i] == NULL ) {
 				this->_inventory[i] = m;
 				std::cout << this->getName()
-						<< "equiped a materia of type "
+						<< " equiped a materia of type "
 						<< m->getType()
 						<< " at slot " << i << std::endl;
 				break;
@@ -60,7 +59,11 @@ void	Character::unequip( int idx ) {
 
 void	Character::use( int idx, ICharacter& target ) {
 
-	if (idx >= 0 && idx < INVENTORY_SIZE) 
-		this->_inventory[idx]->use(target);
+	if (idx >= 0 && idx < INVENTORY_SIZE) {
+		if (this->_inventory[idx] == NULL)
+			std::cout << "no materia equiped at slot " << idx << std::endl;
+		else
+			this->_inventory[idx]->use(target);
+	}
 	return;
 }
