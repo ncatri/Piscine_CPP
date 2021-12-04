@@ -3,11 +3,7 @@ CXX = clang++
 
 NAME = run
 
-SRCS = Animal.cpp 		\
-	   Cat.cpp 			\
-	   Dog.cpp 			\
-	   WrongAnimal.cpp	\
-	   WrongCat.cpp		\
+SRCS = Bureaucrat.cpp 
 
 OBJS_FOLDER = bin
 OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
