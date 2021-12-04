@@ -2,6 +2,7 @@
 #	define BUREAUCRAT_H
 
 #	include <string>
+#	include <iostream>
 
 class Bureaucrat {
 
@@ -20,12 +21,12 @@ class Bureaucrat {
 
 		class GradeTooHighException : public std::exception {
 			public:
-				std::string	getMessage() { return ("grade too high"); }
+				const char *what() const throw();	
 		};
 
 		class GradeTooLowException : public std::exception {
 			public:
-				std::string	getMessage() { return ("grade too low"); }
+				const char *what() const throw(); 
 		};
 
 	private:
@@ -35,5 +36,7 @@ class Bureaucrat {
 		int					_grade;
 
 };
+
+std::ostream& operator<<( std::ostream& o, Bureaucrat& rhs );
 
 #endif
