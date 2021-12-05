@@ -49,6 +49,19 @@ void		Bureaucrat::downgrade() {
 		this->_grade++;
 }
 
+void	Bureaucrat::signForm( Form& form ) const {
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << this->_name << " cannot sign " << form.getName()
+			<< " because " << e.what() << std::endl;
+	}
+	std::cout << this->_name << " signs " << form.getName() << std::endl;
+}
+
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
 	return ("Grade too high");
 }

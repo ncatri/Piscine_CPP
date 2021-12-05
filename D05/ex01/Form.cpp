@@ -13,8 +13,6 @@ Form::Form( std::string name, int sign, int execute) :
 Form::Form( Form const& src ) :
 	_signing_grade(src.getSigningG()), _executing_grade(getExecutingG()) {
 
-//	this->_signing_grade = src.getSigningG();
-//	this->_executing_grade = src.getExecutingG();
 	*this = src;
 }
 
@@ -42,7 +40,7 @@ int			Form::getSigningG() const { return(this->_signing_grade); }
 int			Form::getExecutingG() const { return(this->_executing_grade); }
 bool		Form::isSigned() const { return(this->_signed); }
 
-void		Form::beSigned( Bureaucrat& b ) {
+void		Form::beSigned( Bureaucrat const& b ) {
 	if (b.getGrade() <= this->_signing_grade)
 		this->_signed = true;
 	else

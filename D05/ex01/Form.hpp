@@ -5,6 +5,8 @@
 #	include <iostream>
 #	include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
 
 	public:
@@ -20,7 +22,7 @@ class Form {
 		int			getExecutingG() const;
 		bool		isSigned() const;
 
-		void		beSigned( Bureaucrat& b );
+		void		beSigned(Bureaucrat const& b );
 
 		class	GradeTooHighException : public std::exception {
 			public:
