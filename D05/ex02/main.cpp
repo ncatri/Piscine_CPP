@@ -5,11 +5,25 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+void testShrubbery(void);
+void	testRobotomy(void);
+void	testPresidential(void);
+
 int main(void) {
-	Bureaucrat b("Bernard", -180);
-	std::cout << b.getName() << std::endl;
-/*
+//	Bureaucrat b("Bernard", -180);
+//	std::cout << b.getName() << std::endl;
+
 	std::cout << "--- ShrubberyCreationForm ---\n";
+	testShrubbery();
+
+	std::cout << "--- RobotomyRequestForm ---\n";
+	testRobotomy();
+
+	std::cout << "--- PresidentialPardon Form ---\n";
+	testPresidential();
+}
+
+void testShrubbery(void) {
 	std::cout << "\tform not signed: \n";
 	Bureaucrat	b("Bernard", 130);
 	ShrubberyCreationForm s("home");
@@ -35,9 +49,9 @@ int main(void) {
 	std::cout << "bureaucrat: " << b << std::endl;
 	std::cout << "form: " << s3 << std::endl;
 	b.signForm(s3);
-*/
-/*
-	std::cout << "--- RobotomyRequestForm ---\n";
+}
+
+void	testRobotomy(void) {
 	std::cout << "\tform not signed: \n";
 	Bureaucrat p("Patrick", 20);
 	RobotomyRequestForm r("bad guy");
@@ -56,9 +70,9 @@ int main(void) {
 	p.setGrade(45);
 	for (int i = 0; i < 8; ++i)
 		p.executeForm(r);
-*/
-/*
-	std::cout << "--- PresidentialPardon Form ---\n";
+}
+
+void	testPresidential(void) {
 	std::cout << "\tform not signed: \n";
 	Bureaucrat	b("Mireille", 10);
 	PresidentialPardonForm p("Billy the Kid");
@@ -80,5 +94,4 @@ int main(void) {
 	std::cout << "bureaucrat: " << b << std::endl;
 	std::cout << "form: " << p << std::endl;
 	b.signForm(p);
-*/
 }
