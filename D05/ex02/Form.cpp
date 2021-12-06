@@ -29,10 +29,10 @@ Form&	Form::operator=( Form const& rhs ) {
 }
 
 std::ostream&	operator<<( std::ostream& o, Form& rhs ) {
-	o << "Form " << rhs.getName() << " is ";
+	o << "Form " << rhs.getName() << " (";
 	if (!rhs.isSigned())
 		o << "not ";
-	o << "signed. (signing grade: " << rhs.getSigningG()
+	o << "signed, signing grade: " << rhs.getSigningG()
 		<< ", executing grade: " << rhs.getExecutingG() << ")";
 	return (o);
 }

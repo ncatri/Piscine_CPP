@@ -35,6 +35,7 @@ Bureaucrat&	Bureaucrat::operator=( Bureaucrat const& rhs ) {
 
 std::string	Bureaucrat::getName() const { return(this->_name); }
 int			Bureaucrat::getGrade() const { return(this->_grade); }
+void		Bureaucrat::setGrade( int const grade ) { this->_grade = grade; }
 
 void		Bureaucrat::upgrade() {
 	if (this->_grade <= 1)
@@ -50,11 +51,13 @@ void		Bureaucrat::downgrade() {
 		this->_grade++;
 }
 
+
 void	Bureaucrat::signForm( Form& form ) const {
 
 	try
 	{
 		form.beSigned(*this);
+		std::cout << this->_name << " signs " << form.getName() << std::endl;
 	}
 	catch (std::exception& e)
 	{
@@ -62,7 +65,21 @@ void	Bureaucrat::signForm( Form& form ) const {
 			<< " because " << e.what() << std::endl;
 		return;
 	}
-	std::cout << this->_name << " signs " << form.getName() << std::endl;
+}
+
+bool	Bureaucrat::executeForm( Form const& form ) const {
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executes " << form.getName() << std::endl; 
+		return (true);
+	}
+	catch ( std::exception& e )
+	{
+		std::cout << this->getName() << " cannot execute " << form.getName() << ": "
+			<< e.what() << std::endl;
+		return (false);
+	}
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
