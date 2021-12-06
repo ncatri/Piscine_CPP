@@ -5,10 +5,18 @@ Form::Form() : _signing_grade(0), _executing_grade(0) {}
 Form::Form( std::string name, int sign, int execute, std::string target ) :
 	_name(name), _signing_grade(sign), _executing_grade(execute), _signed(false), _target(target) {
 
-	if (sign < 1 || execute < 1)
-		throw GradeTooHighException();
-	if (sign > 150 || execute > 150)
-		throw GradeTooLowException();
+	try
+	{
+		if (sign < 1 || execute < 1)
+			throw GradeTooHighException();
+		if (sign > 150 || execute > 150)
+			throw GradeTooLowException();
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "\033[1;31mexception caught: \033[0;m" 
+			<< e.what() << std::endl;
+	}
 	return;
 }
 

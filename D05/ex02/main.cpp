@@ -6,6 +6,8 @@
 #include "PresidentialPardonForm.hpp"
 
 int main(void) {
+	Bureaucrat b("Bernard", -180);
+	std::cout << b.getName() << std::endl;
 /*
 	std::cout << "--- ShrubberyCreationForm ---\n";
 	std::cout << "\tform not signed: \n";
@@ -55,7 +57,7 @@ int main(void) {
 	for (int i = 0; i < 8; ++i)
 		p.executeForm(r);
 */
-
+/*
 	std::cout << "--- PresidentialPardon Form ---\n";
 	std::cout << "\tform not signed: \n";
 	Bureaucrat	b("Mireille", 10);
@@ -78,5 +80,5 @@ int main(void) {
 	std::cout << "bureaucrat: " << b << std::endl;
 	std::cout << "form: " << p << std::endl;
 	b.signForm(p);
-
+*/
 }
