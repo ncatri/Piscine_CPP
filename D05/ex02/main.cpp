@@ -3,9 +3,10 @@
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void) {
-
+/*
 	std::cout << "--- ShrubberyCreationForm ---\n";
 	std::cout << "\tform not signed: \n";
 	Bureaucrat	b("Bernard", 130);
@@ -32,7 +33,7 @@ int main(void) {
 	std::cout << "bureaucrat: " << b << std::endl;
 	std::cout << "form: " << s3 << std::endl;
 	b.signForm(s3);
-
+*/
 /*
 	std::cout << "--- RobotomyRequestForm ---\n";
 	std::cout << "\tform not signed: \n";
@@ -54,4 +55,28 @@ int main(void) {
 	for (int i = 0; i < 8; ++i)
 		p.executeForm(r);
 */
+
+	std::cout << "--- PresidentialPardon Form ---\n";
+	std::cout << "\tform not signed: \n";
+	Bureaucrat	b("Mireille", 10);
+	PresidentialPardonForm p("Billy the Kid");
+	std::cout << "bureaucrat: " << b << std::endl;
+	std::cout << "form: " << p << std::endl;
+	b.executeForm(p);
+	std::cout << "\tbureaucrat has grade too low to execute:\n";
+	b.setGrade(20);
+	std::cout << "bureaucrat: " << b << std::endl;
+	std::cout << "form: " << p << std::endl;
+	b.signForm(p);
+	b.executeForm(p);
+	std::cout << "\teverything ok:\n";
+	b.setGrade(5);
+	b.signForm(p);
+	b.executeForm(p);
+	std::cout << "\tbureaucrat has grade too low to sign:\n";
+	b.setGrade(150);
+	std::cout << "bureaucrat: " << b << std::endl;
+	std::cout << "form: " << p << std::endl;
+	b.signForm(p);
+
 }
