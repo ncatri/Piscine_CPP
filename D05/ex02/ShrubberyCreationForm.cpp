@@ -19,9 +19,13 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=( ShrubberyCreationForm c
 	return (*this);
 }
 
-void	ShrubberyCreationForm::execute( Bureaucrat const& executor ) const {
+bool	ShrubberyCreationForm::execute( Bureaucrat const& executor ) const {
 	
-	if (this->execRequirementsOK(executor)) { 
+	bool ret = true;
+
+	try
+	{
+	 	this->execRequirementsOK(executor);
 		std::ofstream file(this->getTarget().data());
 		file << "           _\\/_        \n";
 		file << "            /\\	     \n";
@@ -38,4 +42,12 @@ void	ShrubberyCreationForm::execute( Bureaucrat const& executor ) const {
 		file << "           \\__/		 \n";
 		file.close();
 	}
+	catch (std::exception& e)
+	{
+		std::cout << "\033[1;31mexception caught: \033[0;m" 
+			<< executor.getName() << " cannot execute " << this->getName() << ": "
+			<< e.what() << std::endl;
+		ret = false;
+	}
+	return (ret);
 }

@@ -61,25 +61,16 @@ void	Bureaucrat::signForm( Form& form ) const {
 	}
 	catch (std::exception& e)
 	{
+		std::cout << "\033[1;31mexception caught: \033[0;m "; 
 		std::cout << this->_name << " cannot sign " << form.getName()
-			<< " because " << e.what() << std::endl;
-		return;
+			<< ": " << e.what() << std::endl;
 	}
 }
 
-bool	Bureaucrat::executeForm( Form const& form ) const {
-	try
-	{
-		form.execute(*this);
+void	Bureaucrat::executeForm( Form const& form ) const {
+
+	if (form.execute(*this) == true )
 		std::cout << this->getName() << " executes " << form.getName() << std::endl; 
-		return (true);
-	}
-	catch ( std::exception& e )
-	{
-		std::cout << this->getName() << " cannot execute " << form.getName() << ": "
-			<< e.what() << std::endl;
-		return (false);
-	}
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {

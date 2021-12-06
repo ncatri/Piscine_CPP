@@ -13,7 +13,7 @@ class ShrubberyCreationForm : public Form {
 
 		ShrubberyCreationForm&	operator=( ShrubberyCreationForm const& rhs );
 
-		void	execute( Bureaucrat const& executor ) const;
+		bool	execute( Bureaucrat const& executor ) const;
 
 	private:
 		ShrubberyCreationForm();

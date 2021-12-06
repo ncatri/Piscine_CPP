@@ -6,6 +6,7 @@ NAME = run
 SRCS = Bureaucrat.cpp 				\
 	   Form.cpp						\
 	   ShrubberyCreationForm.cpp	\
+	   RobotomyRequestForm.cpp
 
 OBJS_FOLDER = bin
 OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))

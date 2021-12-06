@@ -13,7 +13,7 @@ class RobotomyRequestForm : public Form {
 
 		RobotomyRequestForm&	operator=( RobotomyRequestForm const& rhs );
 
-		void	execute( Bureaucrat const& executor ) const;
+		bool	execute( Bureaucrat const& executor ) const;
 
 	private:
 		RobotomyRequestForm();
