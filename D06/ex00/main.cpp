@@ -19,12 +19,15 @@ int	main(int argc, char **argv) {
 	}
 
 	/*	char conversions	*/
-	if ( db >= 0 && db <= 31 )
+
+	if ( db <= 31 || db >= 127 )
 		std::cout << "char: non displayable" << std::endl;
 	else {
 		char	as_char= static_cast<char>(db);
 		std::cout << "char: '" << as_char << "'" << std::endl;
 	}
+	/* other conversions */
+
 	int		as_int = static_cast<int>(db);
 	std::cout << "int: " << as_int << std::endl;
 	float	as_float = static_cast<float>(db);
