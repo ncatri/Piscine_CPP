@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cctype>
+#include <string>
 #include <limits>
 
 int	main(int argc, char **argv) {
@@ -7,19 +9,17 @@ int	main(int argc, char **argv) {
 		return (1);
 	}
 
-//	std::cout.precision(10);
+	std::cout.precision(15);
 	std::string	rpz = argv[1];
 	double db;
+	char	*pEnd = NULL;
 	if (rpz.size() > 1 || std::isdigit(argv[1][0])) 
 	{
-		try
+		db = strtod(argv[1], &pEnd);
+		if (*pEnd && !(pEnd[0] == 'f' && pEnd[1] == '\0'))
 		{
-			db = std::stod(rpz);
-		}
-		catch (std::exception& e)
-		{
-			std::cerr << "error: argument is not a string representation of a scalar type (char, int, float or double)" << std::endl;
-			return (2);
+			std::cerr << "error: argument is not a valid representation" << std::endl;
+			return (1);
 		}
 	}
 	else
