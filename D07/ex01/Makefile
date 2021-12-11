@@ -3,16 +3,20 @@ CXX = clang++
 
 NAME = run
 
-SRCS = main.cpp
+SRCS = Bureaucrat.cpp \
+	   Form.cpp
 
 OBJS_FOLDER = bin
 OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
 
 HEADERS = iter.hpp
 
+$(OBJS_FOLDER)/%.o: %.cpp $(HEADERS)
+	@mkdir -p $(dir $@)
+	$(CXX) $(CPPFLAGS) -c $< -o $@
 
-$(NAME): main.cpp iter.hpp
-	$(CXX) $(CPPFLAGS) main.cpp -o $(NAME)
+$(NAME): $(OBJS) main.cpp iter.hpp Bureaucrat.hpp
+	$(CXX) $(CPPFLAGS) $(OBJS) main.cpp -o $(NAME)
 
 test:
 	echo sources: $(SRCS)
