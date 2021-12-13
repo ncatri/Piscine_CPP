@@ -19,3 +19,5 @@ fixed
 bsp
 claptrap
 run
+run_test
+main_subject.cpp

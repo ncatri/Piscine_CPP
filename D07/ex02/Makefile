@@ -8,7 +8,7 @@ SRCS = Zombie.cpp
 OBJS_FOLDER = bin
 OBJS = $(addprefix $(OBJS_FOLDER)/, $(SRCS:.cpp=.o))
 
-HEADERS = Array.hpp Human.hpp Zombie.hpp
+HEADERS = Array.hpp Zombie.hpp
 
 $(OBJS_FOLDER)/%.o: %.cpp $(HEADERS)
 	@mkdir -p $(dir $@)
@@ -17,15 +17,17 @@ $(OBJS_FOLDER)/%.o: %.cpp $(HEADERS)
 $(NAME): $(OBJS) main.cpp
 	$(CXX) $(CPPFLAGS) $(OBJS) main.cpp -o $(NAME)
 
-test:
-	echo sources: $(SRCS)
-	echo objets: $(OBJS)
+test: $(OBJS) main_subject.cpp
+	$(CXX) $(CPPFLAGS) $(OBJS) main_subject.cpp -o $(NAME)_test
+
 clean:
 	$(RM) -r $(OBJS_FOLDER)
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(NAME)_test
 	$(RM) -r $(NAME).dSYM
+	$(RM) -r $(NAME)_test.dSYM
 
 re: fclean $(NAME)
 
