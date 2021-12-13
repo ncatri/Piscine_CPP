@@ -2,8 +2,8 @@
 #	define ARRAY_HPP
 
 #	include <cstdlib> // definition of NULL
+#	include <stdexcept>
 
-#include <iostream>
 template <typename T>
 class Array {
 
@@ -33,13 +33,10 @@ class Array {
 
 		Array&	operator=( Array const& rhs ) {
 
-			std::cout << "inside operator=" << std::endl;
 			if (this != &rhs) {
 				unsigned int size = rhs.size();
-				if (this->_array) {
-					std::cout << "coucou=" << this->_size << std::endl;
+				if (this->_array)
 					delete [] this->_array;
-				}
 				this->_array = new	T[size];
 				for (unsigned int i = 0; i < size; ++i) {
 					this->_array[i] = rhs[i];
