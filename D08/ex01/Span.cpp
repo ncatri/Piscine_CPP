@@ -56,14 +56,10 @@ unsigned int	Span::shortestSpan() const {
 	std::vector<int> v = this->_vector;
 	std::sort(v.begin(), v.end());
 	int shortest = *(v.end() - 1);
-//	for (std::vector<int>::const_iterator it = v.begin(); it != v.end(); ++it)
-//		std::cout << *it << " ";
-//	std::cout << "shortest: " << shortest << std::endl;
 	for (std::vector<int>::const_iterator it = v.begin(); (it + 1) != v.end(); ++it) {
 		if (*(it + 1) - *it < shortest) {
 			shortest = *(it + 1) - *it;
 		}
-//		std::cout << *(it +1) << " " << *it << ", shortest: " << shortest << std::endl;
 	}
 	return (shortest);
 }
