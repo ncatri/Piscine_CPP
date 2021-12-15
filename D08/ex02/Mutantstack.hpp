@@ -9,16 +9,18 @@ class MutantStack : public std::stack<T> {
 	public:
 
 		MutantStack() {}
-		MutantStack( MutantStack const& src ) {*this = src;}
+		MutantStack( MutantStack const& src ) { *this = src; }
 		~MutantStack(){}
 
-		MutantStack&	operator=( MutantStack const& rhs ) {(void)rhs; return(*this);}
+		MutantStack&	operator=( MutantStack const& rhs ) {
+			this->c = rhs.c;
+			return (*this);
+		}
 
 		typedef typename std::stack<T>::container_type::iterator iterator;
-		using std::stack<T>::c;
 
-		iterator begin() { return(c.begin()); }
-		iterator end() { return(c.end()); }
+		iterator begin() { return (this->c.begin()); }
+		iterator end() { return(this->c.end()); }
 
 	private:
 
