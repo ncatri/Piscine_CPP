@@ -2,15 +2,12 @@
 #	define EASYFIND_H
 
 #include <stdexcept>
+#include <algorithm>
 
 template<typename T>
-int	easyfind(T& container, int target) {
-	typename T::const_iterator iterator;
-	for (iterator = container.begin(); iterator != container.end(); ++iterator) {
-		if (*iterator == target)
-			return (*iterator);
-	}
-	throw std::runtime_error("target not found");
+void	easyfind(T& container, int target) {
+	if (std::find(container.begin(), container.end(), target) == container.end())
+		throw std::runtime_error("target not found");
 }
 
 #endif

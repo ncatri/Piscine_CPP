@@ -6,21 +6,46 @@
 
 int main(void) {
 
+	std::cout << "--- test with list ---" << std::endl;
 	std::list<int>	v;
 	v.push_back(2);
-	v.push_back(23);
-	v.push_back(23);
-	v.push_back(-8);
-	v.push_back(17);
+	v.push_back(4);
+	v.push_back(6);
+	v.push_back(8);
+	v.push_back(10);
 
-	try
-	{
-		int found = easyfind<>(v, 23);
-		std::cout << "found: " << found << std::endl;
+	for (int i = 0; i <= 10; ++i) {
+		try
+		{
+			easyfind<>(v, i);
+			std::cout << "found: " << i << std::endl;
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "not found: " << i << std::endl;
+		}
 	}
-	catch (std::exception& e)
+
+	std::cout << "--- test with vector ---" << std::endl;
 	{
-		std::cout << "exception caught: " << e.what() << std::endl;
+		std::vector<int> v;	
+		v.push_back(1);
+		v.push_back(3);
+		v.push_back(5);
+		v.push_back(7);
+		v.push_back(9);
+
+		for (int i = 0; i <= 10; ++i) {
+			try
+			{
+				easyfind<>(v, i);
+				std::cout << "found: " << i << std::endl;
+			}
+			catch (std::exception& e)
+			{
+				std::cout << "not found: " << i << std::endl;
+			}
+		}
 	}
 }
 
