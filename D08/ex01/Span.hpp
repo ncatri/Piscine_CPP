@@ -15,6 +15,7 @@ class Span {
 
 		std::vector<int>	getVector() const;
 		unsigned int		getCapacity() const;
+		unsigned int		getNumElts() const;
 
 		void	addNumber( int number );
 		void	fillRandom();
@@ -27,6 +28,7 @@ class Span {
 		Span();
 		unsigned int		_capacity;
 		std::vector<int>	_vector;
+		unsigned int		_num_elts;
 };
 
 std::ostream&	operator<<( std::ostream& o, Span& rhs );
